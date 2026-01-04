@@ -23,8 +23,12 @@ export default function DiagnosisPage() {
       />
 
       <button
-        onClick={() => router.push("/result/demo")}
+        onClick={() => {
+          const q = encodeURIComponent(text.trim());
+          router.push(`/result/demo?q=${q}`);
+        }}
         style={{ padding: "10px 14px", cursor: "pointer" }}
+        disabled={!text.trim()}
       >
         Generate result
       </button>
